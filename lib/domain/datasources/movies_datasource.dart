@@ -1,0 +1,13 @@
+import 'package:cinemapedia_220419/domain/entities/movie.dart';
+
+abstract class MoviesDatasource {
+  Future<List<Movie>> getNowPlaying({int page = 1});
+  Future<List<Movie>> getPopular({int page = 1});
+
+  Future<List<Movie>> getTopRated({int page = 1});
+  Future<List<Movie>> getUpcoming({int page = 1});
+  Future<List<Movie>> getMexican({int page = 1});
+
+  Future<List<Movie>> getMovieById({int page = 1});
+
+}
