@@ -2,18 +2,15 @@ import 'package:cinemapedia_220419/domain/entities/movie.dart';
 import 'package:cinemapedia_220419/presentation/providers/movies/movies_repository_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Tipo de función para obtener películas
 
 typedef MovieCallback = Future<List<Movie>> Function({int page});
 
-//  Provider para Now Playing
 
 final nowPlayingMoviesProvider = NotifierProvider<MoviesNotifier, List<Movie>>(
   () =>
       MoviesNotifier((ref) => ref.watch(movieRepositoryProvider).getNowPlaying),
 );
 
-//  Provider para Popular Movies
 
 final popularMoviesProvider = NotifierProvider<MoviesNotifier, List<Movie>>(
   () => MoviesNotifier((ref) => ref.watch(movieRepositoryProvider).getPopular),
@@ -35,7 +32,6 @@ final getMovieById = NotifierProvider<MoviesNotifier, List<Movie>>(
   () => MoviesNotifier((ref) => ref.watch(movieRepositoryProvider).getMovieById),
 );
 
-//  Notifier genérico que maneja cualquier tipo de lista de películas
 
 class MoviesNotifier extends Notifier<List<Movie>> {
   final MovieCallback Function(Ref ref) _callbackBuilder;
